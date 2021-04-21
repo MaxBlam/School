@@ -6,7 +6,7 @@ router.post('/login', (req, res) => {
   // enter your code here
 });
 
-router.get('/logout', redirectLogin, (req, res) => {
+router.get('/logout', /*redirectLogin,*/ (req, res) => {
   // enter your code here
 });
 
