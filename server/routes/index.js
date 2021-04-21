@@ -20,6 +20,8 @@ router.get(
   '/logout',
   /*redirectLogin,*/ (req, res) => {
     // enter your code here
+    req.session.destroy();
+    res.clearCookie(process.env.SESSION_NAME);
   }
 );
 

@@ -53,7 +53,11 @@ export default {
           password: this.password,
         },
       });
-      localStorage.setItem('session', JSON.stringify({ id: data.id, name: data.name }));
+      localStorage.setItem(
+        'session',
+        JSON.stringify({ id: data.id, name: data.name })
+      );
+      this.$router.push('/');
     },
   },
 };
