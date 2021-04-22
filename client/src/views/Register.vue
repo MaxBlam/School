@@ -58,7 +58,7 @@ export default {
   methods: {
     async register() {
       await axios({
-        url: 'http://localhost:3000/register',
+        url: '/register',
         method: 'POST',
         data: {
           email: this.email,

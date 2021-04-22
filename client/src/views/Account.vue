@@ -44,7 +44,7 @@ export default {
   },
   async created() {
     let { data } = await axios({
-      url: 'http://localhost:3000/secretdata',
+      url: '/secretdata',
       method: 'GET',
     });
     console.log(data);

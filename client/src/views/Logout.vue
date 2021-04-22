@@ -18,7 +18,7 @@ import axios from 'axios';
 export default {
   async created() {
     let { data } = await axios({
-      url: 'http://localhost:3000/logout',
+      url: '/logout',
       method: 'GET',
     });
     localStorage.clear();

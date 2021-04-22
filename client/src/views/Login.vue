@@ -46,7 +46,7 @@ export default {
   methods: {
     async login() {
       let { data } = await axios({
-        url: 'http://localhost:3000/login',
+        url: '/login',
         method: 'POST',
         data: {
           email: this.email,
