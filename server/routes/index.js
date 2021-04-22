@@ -21,6 +21,7 @@ router.get(
   /*redirectLogin,*/ (req, res) => {
     req.session.destroy();
     res.clearCookie(process.env.SESSION_NAME);
+    res.status(200).send('Ok');
   }
 );
 
