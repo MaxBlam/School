@@ -39,14 +39,15 @@ router.post('/register', (req, res) => {
     }
     if (status400) {
       res.status(400).send('Registration failed');
-      console.log('test');
     } else if (users.map((user) => user.email).includes(user.email)) {
       res.status(409).send('E-mail already registered');
     } else {
+      user.id = Math.max(...users.map((user) => user.id)) + 1;
+      users.push(user);
       res.status(200).send();
     }
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 });
 
