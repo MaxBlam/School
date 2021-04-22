@@ -43,12 +43,24 @@ export default {
     };
   },
   async created() {
-    let { data } = await axios({
-      url: '/secretdata',
-      method: 'GET',
-    });
-    console.log(data);
-    this.prime = data.prime;
+    this.getStorageSession();
+    this.getSecret();
+  },
+  methods: {
+    async getSecret() {
+      let { data } = await axios({
+        url: '/secretdata',
+        method: 'GET',
+      });
+      this.prime = data.replace(/^\D+/g, '');
+    },
+    getStorageSession() {
+      let temp = JSON.parse(localStorage.getItem('session'));
+      if (temp) {
+        this.user.id = temp.id;
+        this.user.name = temp.name;
+      }
+    },
   },
 };
 </script>

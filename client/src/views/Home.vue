@@ -65,8 +65,10 @@ export default {
   methods: {
     getStorageSession() {
       let temp = JSON.parse(localStorage.getItem('session'));
-      this.user.id = temp.id;
-      this.user.name = temp.name;
+      if (temp) {
+        this.user.id = temp.id;
+        this.user.name = temp.name;
+      }
     },
   },
 };
