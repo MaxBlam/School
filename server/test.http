@@ -5,3 +5,12 @@ Content-Type: application/json
   "email": "john@gmail.com",
   "password": "1234"
 }
+###
+POST http://127.0.0.1:3000/register
+Content-Type: application/json
+
+{
+  "name":"t",
+  "email": "new",
+  "password": "1234"
+}

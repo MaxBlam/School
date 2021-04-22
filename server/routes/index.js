@@ -26,7 +26,28 @@ router.get(
 );
 
 router.post('/register', (req, res) => {
-  // enter your code here
+  try {
+    let user = {};
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.name = req.body.name;
+    let status400 = false;
+    for (value in user) {
+      if (!user[value] || user[value] == '') {
+        status400 = true;
+      }
+    }
+    if (status400) {
+      res.status(400).send('Registration failed');
+      console.log('test');
+    } else if (users.map((user) => user.email).includes(user.email)) {
+      res.status(409).send('E-mail already registered');
+    } else {
+      res.status(200).send();
+    }
+  } catch (error) {
+    console.error(error)
+  }
 });
 
 router.get('/secretdata', (req, res) => {
