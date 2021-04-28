@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     async register() {
-      await axios({
+      let result = await axios({
         url: '/register',
         method: 'POST',
         data: {
@@ -66,7 +66,9 @@ export default {
           password: this.password,
         },
       });
-      this.$router.push('/login');
+      if (result.status == 200) {
+        this.$router.push('/login');
+      }
     },
   },
 };
