@@ -44,15 +44,14 @@ async function deleteByName(cname) {
   };
 }
 
-
 async function insertCocktail(object) {
-  await db.query(
-    'INSERT INTO cocktail (cid, cname, preis,zubereitung,kid,zgid,sgid) VALUES(DEFAULT,$1,$2,$3,$4,$5,$6)',
-    [object.cname, object.preis, object.zubereitung,object.kid, object.zgid,object.sgid],
+  const {rows} = await db.query(
+    'INSERT INTO cocktail (cid, cname, preis,zubereitung,kid,zgid,sgid) VALUES(DEFAULT,$1,$2,$3,$4,$5,$6) RETURNING cid',
+    [object.cname, object.preis, object.zubereitung, object.kid, object.zgid, object.sgid],
   );
   return {
     code: 200,
-    data: `Inserted ${object.cid}`,
+    data: `Inserted ${rows[0].cid}`,
   };
 }
 
