@@ -8,11 +8,15 @@ async function getCocktails() {
   };
 }
 
-async function delAirport(id) {
-  await db.query('DELETE FROM airport WHERE airport_name = $1', [id]);
+async function getIngredients(cname) {
+  console.log(cname);
+  const { rows } = await db.query(
+    'SELECT zbez AS zutaten FROM cocktail JOIN besteht b on cocktail.cid = b.cid JOIN zutat z on b.zid = z.zid WHERE cname = $1',
+    [cname],
+  );
   return {
     code: 200,
-    data: true,
+    data: rows,
   };
 }
 
@@ -41,7 +45,6 @@ async function insertAirport(object) {
 
 module.exports = {
   getCocktails,
-  insertAirport,
-  delAirport,
+  getIngredients,
   patchAirport,
 };
