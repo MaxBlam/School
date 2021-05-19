@@ -17,3 +17,9 @@ Content-Type: application/json
 "zgid": 1,
 "sgid": 1
 }}
+################################
+PATCH http://127.0.0.1:3000/cocktail/KGB
+Content-Type: application/json
+
+{"price":99.99
+}

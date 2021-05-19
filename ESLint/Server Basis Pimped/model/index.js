@@ -45,7 +45,7 @@ async function deleteByName(cname) {
 }
 
 async function insertCocktail(object) {
-  const {rows} = await db.query(
+  const { rows } = await db.query(
     'INSERT INTO cocktail (cid, cname, preis,zubereitung,kid,zgid,sgid) VALUES(DEFAULT,$1,$2,$3,$4,$5,$6) RETURNING cid',
     [object.cname, object.preis, object.zubereitung, object.kid, object.zgid, object.sgid],
   );
@@ -55,10 +55,22 @@ async function insertCocktail(object) {
   };
 }
 
+async function updatePrice(cname, newPrice) {
+  const { rows } = await db.query('UPDATE cocktail SET preis = $1 WHERE cname=$2 RETURNING preis;', [
+    newPrice,
+    cname,
+  ]);
+  return {
+    code: 200,
+    data: `Updated to ${rows[0].preis}`,
+  };
+}
+
 module.exports = {
   getCocktails,
   getIngredients,
   getBelowPrice,
   deleteByName,
   insertCocktail,
+  updatePrice,
 };
