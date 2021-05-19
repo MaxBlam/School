@@ -9,7 +9,6 @@ async function getCocktails() {
 }
 
 async function getIngredients(cname) {
-  console.log(cname);
   const { rows } = await db.query(
     'SELECT zbez AS zutaten FROM cocktail JOIN besteht b on cocktail.cid = b.cid JOIN zutat z on b.zid = z.zid WHERE cname = $1',
     [cname],
@@ -17,6 +16,22 @@ async function getIngredients(cname) {
   return {
     code: 200,
     data: rows,
+  };
+}
+
+async function getBelowPrice(price) {
+  const { rows } = await db.query('SELECT cname,preis FROM cocktail WHERE preis <= $1', [price]);
+  return {
+    code: 200,
+    data: rows,
+  };
+}
+
+async function deleteByName(cname) {
+  await db.query('DELETE FROM cocktail WHERE cname <= $1', [cname]);
+  return {
+    code: 200,
+    data: "Deleted",
   };
 }
 
@@ -46,5 +61,6 @@ async function insertAirport(object) {
 module.exports = {
   getCocktails,
   getIngredients,
-  patchAirport,
+  getBelowPrice,
+  deleteByName,
 };
