@@ -1,7 +1,7 @@
 const db = require('../db');
 
-async function getAirports() {
-  const { rows } = await db.query('SELECT * FROM airport ORDER BY airport_name');
+async function getCocktails() {
+  const { rows } = await db.query('SELECT cname,preis FROM cocktail;');
   return {
     code: 200,
     data: rows,
@@ -40,7 +40,7 @@ async function insertAirport(object) {
 }
 
 module.exports = {
-  getAirports,
+  getCocktails,
   insertAirport,
   delAirport,
   patchAirport,
