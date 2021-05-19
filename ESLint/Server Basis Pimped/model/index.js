@@ -28,33 +28,31 @@ async function getBelowPrice(price) {
 }
 
 async function deleteByName(cname) {
-  await db.query('DELETE FROM cocktail WHERE cname <= $1', [cname]);
+  let cid;
+  try {
+    cid = await (await db.query('SELECT cid FROM cocktail WHERE cname = $1', [cname])).rows[0].cid;
+  } catch (err) {
+    throw new Error(`Cocktail ${cname} not found!`);
+  }
+  const tables = ['besteht', 'bestellt', 'cocktail'];
+  for (t of tables) {
+    await db.query(`DELETE FROM ${t} WHERE cid = ${cid}`);
+  }
   return {
     code: 200,
-    data: "Deleted",
+    data: 'Deleted',
   };
 }
 
-async function patchAirport(id, data) {
-  let props = [];
-  for (const prop in data) props.push(`${prop} = '${data[prop]}'`);
-  await db.query(`UPDATE airport SET ${props.join(',')} WHERE airport_name = $1`, [id]);
 
-  return {
-    code: 200,
-    data: true,
-  };
-}
-
-async function insertAirport(object) {
+async function insertCocktail(object) {
   await db.query(
-    `INSERT INTO airport (airport_name, builddate, size)
-                           VALUES($1,$2,$3)`,
-    [object.airport_name, object.builddate, object.size],
+    'INSERT INTO cocktail (cid, cname, preis,zubereitung,kid,zgid,sgid) VALUES(DEFAULT,$1,$2,$3,$4,$5,$6)',
+    [object.cname, object.preis, object.zubereitung,object.kid, object.zgid,object.sgid],
   );
   return {
     code: 200,
-    data: object.airport_name,
+    data: `Inserted ${object.cid}`,
   };
 }
 
@@ -63,4 +61,5 @@ module.exports = {
   getIngredients,
   getBelowPrice,
   deleteByName,
+  insertCocktail,
 };

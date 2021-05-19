@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { getCocktails, getIngredients, getBelowPrice } = require('../model');
+const { getCocktails, getIngredients, getBelowPrice, deleteByName, insertCocktail } = require('../model');
 
 const router = express.Router();
 
@@ -30,7 +30,14 @@ router.get(
 router.delete(
   '/cocktails/:cname',
   asyncHandler(async (req, res) => {
-    const result = await getBelowPrice(req.params.cname);
+    const result = await deleteByName(req.params.cname);
+    res.status(result.code).json(result.data);
+  }),
+);
+router.post(
+  '/cocktail',
+  asyncHandler(async (req, res) => {
+    const result = await insertCocktail(req.body.cocktail);
     res.status(result.code).json(result.data);
   }),
 );
