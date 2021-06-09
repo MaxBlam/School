@@ -4,7 +4,7 @@
   "description": "Basis Server Pimped V1.1",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node loadData.js && nodemon app.js",
     "lint": "eslint . --ext .js"
   },
   "author": "RB",
