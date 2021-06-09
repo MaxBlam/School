@@ -1,6 +1,6 @@
 require('./db/connect');
 require('colors');
-const { Dog } = require('./model/schemas');
+const { Dog } = require('./model/dogs');
 
 (async () => {
   try {
@@ -8,7 +8,7 @@ const { Dog } = require('./model/schemas');
       name: 'Bello',
       born: '2020-12-01',
     });
-    const p1 = Dog.create({
+    const p2 = Dog.create({
       name: 'Beisser',
       born: '2020-12-02',
     });
