@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const path = require('path');
 const routes = require('./routes');
+require('./db/connect');
 require('colors');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 require('dotenv').config();

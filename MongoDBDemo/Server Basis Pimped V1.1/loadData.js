@@ -1,4 +1,5 @@
 require('./db/connect');
+require("./model/doggos")
 require('colors');
 const { Dog } = require('./model/dogs');
 

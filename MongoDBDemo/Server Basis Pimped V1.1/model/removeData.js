@@ -1,0 +1,1 @@
+await Dog.deleteMany({})

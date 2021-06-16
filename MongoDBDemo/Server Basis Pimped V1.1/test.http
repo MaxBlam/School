@@ -1,1 +1,1 @@
-GET http://localhost:3000/welcome
+GET http://localhost:3000/dogs

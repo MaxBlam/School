@@ -8,4 +8,9 @@ router.get(
   asyncHandler((req, res) => res.send('Willkommen beim Basis Server Pimped!')),
 );
 
+router.get(
+  '/dogs',
+  asyncHandler((req, res) => res.send('Willkommen beim Basis Server Pimped!')),
+);
+
 module.exports = router;
