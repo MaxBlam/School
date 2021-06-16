@@ -1,7 +1,7 @@
 require('./db/connect');
-require("./model/doggos")
+require("./model/dogs")
 require('colors');
-const { Dog } = require('./model/dogs');
+const { Dog } = require('./model/schemas');
 
 (async () => {
   try {

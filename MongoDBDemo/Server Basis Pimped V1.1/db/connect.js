@@ -2,6 +2,7 @@ const { connect, connection } = require('mongoose');
 require('dotenv').config();
 require('colors');
 
+
 (async () => {
   try {
     await connect(process.env.DATABASE_URL, {

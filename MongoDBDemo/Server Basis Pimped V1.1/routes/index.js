@@ -1,5 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { getDogs } = require('../model/dogs');
 
 const router = express.Router();
 
@@ -10,7 +11,7 @@ router.get(
 
 router.get(
   '/dogs',
-  asyncHandler((req, res) => res.send('Willkommen beim Basis Server Pimped!')),
+  asyncHandler(async (req, res) => res.send(await getDogs())),
 );
 
 module.exports = router;
