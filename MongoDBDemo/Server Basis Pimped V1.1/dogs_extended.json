@@ -1,0 +1,58 @@
+[
+  {
+    "born": "2009-10-16",
+    "name": "Mr. Wow",
+    "favFoods": ["lentils", "meat"],
+    "sex": "male",
+    "image": "images/1.jpg"
+  },
+  {
+    "born": "2012-04-22",
+    "name": "Britney Ears",
+    "favFoods": ["turnips", "corn"],
+    "sex": "female",
+    "image": "images/2.jpg"
+  },
+  {
+    "born": "2016-10-22",
+    "name": "Bark Twain",
+    "favFoods": ["calf bones", "beef lung", "apples"],
+    "sex": "male",
+    "image": "images/3.jpg"
+  },
+  {
+    "born": "2017-03-12",
+    "name": "Cupcake",
+    "favFoods": ["lentils", "carrots", "calf bones"],
+    "sex": "female",
+    "image": "images/4.jpg"
+  },
+  {
+    "born": "2017-06-06",
+    "name": "Hector",
+    "favFoods": ["socks", "beans"],
+    "sex": "male",
+    "image": "images/5.jpg"
+  },
+  {
+    "born": "2007-04-22",
+    "name": "Lady Sarah Jessica Barker",
+    "favFoods": ["calf bones", "corn"],
+    "sex": "female",
+    "image": "images/6.jpg"
+  },
+  {
+    "born": "2019-08-14",
+    "name": "Sherlock Bones",
+    "favFoods": ["beans", "lentils","apples"],
+    "sex": "male",
+    "image": "images/7.jpg"
+  },
+  {
+    "born": "2018-11-29",
+    "name": "Subwoofer",
+    "favFoods": ["carrots", "bananas","corn"],
+    "sex": "female",
+    "image": "images/8.jpg"
+  }
+]
