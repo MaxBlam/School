@@ -9,7 +9,7 @@
     "removeData":"node removeData.js",
     "lint": "eslint . --ext .js"
   },
-  "author": "RB",
+  "author": "MB",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
